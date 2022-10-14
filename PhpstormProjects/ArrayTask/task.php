@@ -4,18 +4,21 @@
 echo '#################### TASK 1 ####################' . PHP_EOL;
 $firstArray = [];
 $secondArray = [];
+
 for ($i = 1; $i <= 10; $i++) {
-    array_push($firstArray, rand(1, 100));
+    $firstArray[] = rand(1, 100);
 }
 print_r($firstArray);
+
 for ($a = 1; $a <= 9; $a++) {
     if ($a % 2 == 1) {
         echo $firstArray[$a] . PHP_EOL;
     }
 }
+
 foreach ($firstArray as $value) {
     if ($value % 2 == 0) {
-        array_push($secondArray, $value);
+        $secondArray[] = $value;
     }
 }
 unset($value);
@@ -25,10 +28,12 @@ print_r($secondArray);
 echo '#################### TASK 2 ####################' . PHP_EOL;
 $counter = 1;
 $assocArray = [];
+
 foreach ($firstArray as $value) {
     $assocArray['number ' . $counter] = $value;
     $counter++;
 }
+
 $keysOfAssocArray = array_keys($assocArray);
 echo $assocArray[$keysOfAssocArray[1]] . PHP_EOL . $assocArray[$keysOfAssocArray[4]] . PHP_EOL . $assocArray[$keysOfAssocArray[6]] . PHP_EOL;
 
@@ -36,10 +41,12 @@ echo $assocArray[$keysOfAssocArray[1]] . PHP_EOL . $assocArray[$keysOfAssocArray
 echo '#################### TASK 3 ####################' . PHP_EOL;
 $arrayOne = [];
 $arrayTwo = [];
+
 for ($b = 1; $b <= 5; $b++) {
-    array_push($arrayOne, rand(1, 100));
-    array_push($arrayTwo, rand(1, 100));
+    $arrayOne[] = rand(1, 6);
+    $arrayTwo[] = rand(1, 6);
 }
+
 $flipArrayOne = array_flip($arrayOne);
 $flipArrayTwo = array_flip($arrayTwo);
 print_r(array_diff_key($flipArrayOne, $flipArrayTwo));
